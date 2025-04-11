@@ -4,7 +4,7 @@ import { MessageSquareText } from 'lucide-react';
 
 
 export function SideBar(){
-   return <div className='h-screen border-r-1 border-amber-200'>
+   return <div className='h-screen border-r-1 border-slate-400'>
     {/* logo  */}
     <div className='p-5 gap-1 flex'>
         
