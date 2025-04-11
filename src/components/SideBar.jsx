@@ -1,4 +1,5 @@
-<section>
+export function SideBar(){
+   return <section>
     {/* logo  */}
     <div>
         <img src="" alt="" />
@@ -15,7 +16,7 @@
         <div>
             <p>PINNED CHATS</p>
             {/* contact card  */}
-            <div>
+            <div className="flex bg-amber-300">
                 {/* profile image  */}
                 <div>
                     <img src="" alt="" />
@@ -61,3 +62,5 @@
     </div>
 
 </section>
+}
+
