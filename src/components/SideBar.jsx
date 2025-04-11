@@ -1,66 +1,89 @@
+import { MessageSquareMore } from 'lucide-react';
+import { Pin } from 'lucide-react';
+import { MessageSquareText } from 'lucide-react';
+
+
 export function SideBar(){
-   return <section>
+   return <div className='h-screen border-r-1 border-amber-200'>
     {/* logo  */}
-    <div>
-        <img src="" alt="" />
+    <div className='p-5 gap-1 flex'>
+        
+        <div className='flex items-center'>
+            <img src="/assets/mingcute_chat-4-fill.png" alt="Chatties logo" />
+            <img src="/assets/Chatties.png" alt="Chatties logo" />
+        </div>
     </div>
 
     {/* contact search bar  */}
-    <div>
-        <input type="text" />
+    <div className='p-5 flex gap-2'>
+        <input type="text" placeholder='Search messages, people' className='px-5 rounded-2xl w-80 border-solid border-gray-800'/>
+         <img src="/assets/Create new chat.png" alt="new chat icon" />
     </div>
 
     {/* contacts  */}
     <div>
         {/* pinned chats  */}
-        <div>
-            <p>PINNED CHATS</p>
-            {/* contact card  */}
-            <div className="flex bg-amber-300">
-                {/* profile image  */}
-                <div>
-                    <img src="" alt="" />
-                </div>
+        <div className='mt-5'>
+            <div className='flex gap-2 px-5'>
+                 <img src="/assets/tabler_pin-filled.png" alt="new chat icon" />
+                <p className='text-slate-400'>PINNED CHATS</p>
+            </div>
 
-                {/* username and message  */}
-                <div>
-                    <h4>Boakai Kamara</h4>
-                    <p>I a coming at your house.</p>
+            {/* contact card  */}
+            <div className="  p-5 flex justify-between items-center">
+                <div className='flex items-center gap-2'>
+                    {/* profile image  */}
+                    <div>
+                        <img src="/assets/Ellipse1.png" alt="" />
+                    </div>
+
+                    {/* username and message  */}
+                    <div>
+                        <h4 className='font-bold'>Boakai Kamara</h4>
+                        <p className='text-slate-400'>I a coming at your house.</p>
+                    </div>
                 </div>
 
                 {/* time and notification batch  */}
-                <div>
-                    <p>10:30 AM</p>
-                    <p>batch icon</p>
+                <div >
+                    <p className='text-slate-400'>10:30 AM</p>
+                    <small className='bg-blue-600 p-1 rounded-full text-white px-2'>2</small>
                 </div>
             </div>
         </div>
 
          {/* all chats  */}
-        <div>
-            <p>PINNED MESSAGES</p>
-            {/* contact card  */}
-            <div>
-                {/* profile image  */}
-                <div>
-                    <img src="" alt="" />
-                </div>
+        <div className='mt-5'>
+            
+            <div className='flex items-center gap-2 px-5'>
+                <img src="/assets/icon-park-solid_message.png" alt="message icon" />
+                <p className='text-slate-400'>ALL MESSAGES</p>
+            </div>
+           
+             {/* contact card  */}
+            <div className="  p-5 flex justify-between items-center">
+                <div className='flex items-center gap-2'>
+                    {/* profile image  */}
+                    <div>
+                        <img src="/assets/Ellipse1.png" alt="" />
+                    </div>
 
-                {/* username and message  */}
-                <div>
-                    <h4>Boakai Kamara</h4>
-                    <p>I a coming at your house.</p>
+                    {/* username and message  */}
+                    <div>
+                        <h4 className='font-bold'>Boakai Kamara</h4>
+                        <p className='text-slate-400'>I a coming at your house.</p>
+                    </div>
                 </div>
 
                 {/* time and notification batch  */}
-                <div>
-                    <p>10:30 AM</p>
-                    <p>batch icon</p>
+                <div >
+                    <p className='text-slate-400'>10:30 AM</p>
+                    <small className='bg-blue-600 p-1 rounded-full text-white px-2'>2</small>
                 </div>
             </div>
         </div>
     </div>
 
-</section>
+</div>
 }
 
