@@ -37,6 +37,15 @@ function Login() {
               className="p-3 appearance-none border rounded "
             />
           </div>
+
+          {/* login btn  */}
+          <div className="flex flex-col mb-5">
+            <input
+              type="submit"
+              value="Login"
+              className="p-3 appearance-none bg-blue-400 text-white rounded "
+            />
+          </div>
         </form>
 
         <p>
