@@ -1,20 +1,18 @@
-import { useState } from "react";
-import { SideBar } from "./components/SideBar";
-import { ChatArea } from "./components/ChatArea";
-import MessageInputArea from "./components/MessageInputArea";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Signup from "./pages/Signup";
+import Login from "./pages/Login";
+import Chats from "./pages/Chats";
 
 function App() {
   return (
-    <div className="flex">
-      <section className="basis-2/5">
-        <SideBar />
-      </section>
-
-      <section className="basis-5/5 ">
-        <ChatArea />
-        <MessageInputArea />
-      </section>
-    </div>
+    <BrowserRouter>
+      <Routes path="/">
+        <Route index element={<Chats />} />
+        <Route path="signup" element={<Signup />} />
+        <Route path="login" element={<Login />} />
+        <Route path="/*" element={<p>page not found</p>} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
