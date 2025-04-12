@@ -1,6 +1,5 @@
-import { MessageSquareMore } from "lucide-react";
-import { Pin } from "lucide-react";
-import { MessageSquareText } from "lucide-react";
+import AllContacts from "./AllContacts";
+import PinnedContacts from "./PinnedContacts";
 
 export function SideBar() {
   return (
@@ -25,69 +24,11 @@ export function SideBar() {
 
       {/* contacts  */}
       <div>
-        {/* pinned chats  */}
-        <div className="mt-5">
-          <div className="flex gap-2 px-5">
-            <img src="/assets/tabler_pin-filled.png" alt="new chat icon" />
-            <p className="text-slate-400">PINNED CHATS</p>
-          </div>
-
-          {/* contact card  */}
-          <div className="  p-5 flex justify-between items-center">
-            <div className="flex items-center gap-2">
-              {/* profile image  */}
-              <div>
-                <img src="/assets/Ellipse1.png" alt="" />
-              </div>
-
-              {/* username and message  */}
-              <div>
-                <h4 className="font-bold">Boakai Kamara</h4>
-                <p className="text-slate-400">I a coming at your house.</p>
-              </div>
-            </div>
-
-            {/* time and notification batch  */}
-            <div>
-              <p className="text-slate-400">10:30 AM</p>
-              <small className="bg-blue-600 p-1 rounded-full text-white px-2">
-                2
-              </small>
-            </div>
-          </div>
-        </div>
+        {/* pinned contacts  */}
+        <PinnedContacts />
 
         {/* all chats  */}
-        <div className="mt-5">
-          <div className="flex items-center gap-2 px-5">
-            <img src="/assets/icon-park-solid_message.png" alt="message icon" />
-            <p className="text-slate-400">ALL MESSAGES</p>
-          </div>
-
-          {/* contact card  */}
-          <div className="  p-5 flex justify-between items-center">
-            <div className="flex items-center gap-2">
-              {/* profile image  */}
-              <div>
-                <img src="/assets/Ellipse1.png" alt="" />
-              </div>
-
-              {/* username and message  */}
-              <div>
-                <h4 className="font-bold">Boakai Kamara</h4>
-                <p className="text-slate-400">I a coming at your house.</p>
-              </div>
-            </div>
-
-            {/* time and notification batch  */}
-            <div>
-              <p className="text-slate-400">10:30 AM</p>
-              <small className="bg-blue-600 p-1 rounded-full text-white px-2">
-                2
-              </small>
-            </div>
-          </div>
-        </div>
+        <AllContacts />
       </div>
     </div>
   );
