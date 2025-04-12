@@ -2,9 +2,9 @@ import React from "react";
 
 export function ChatArea() {
   return (
-    <div className="bg-slate-200 h-screen">
+    <div className="bg-slate-200 h-screen relative  ">
       {/* chat header  */}
-      <div className="bg-white  py-5 px-10 flex justify-between items-center">
+      <div className="bg-white  py-5 px-10 flex justify-between items-center sticky top-0">
         <div className="flex items-center gap-5">
           {/* profile image  */}
           <div className="relative">
@@ -36,7 +36,7 @@ export function ChatArea() {
       </div>
 
       {/* chat content  */}
-      <div className="px-10  ">
+      <div className="px-10   ">
         {/* chat for person with the account  */}
         <div className="flex my-10  gap-3 w-7/12">
           {/* profile image  */}
