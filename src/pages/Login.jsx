@@ -15,7 +15,14 @@ function Login() {
 
         <h2 className="text-center text-3xl font-bold mb-8">Login</h2>
 
-        <form action="" className="mb-7">
+        <form
+          action=""
+          className="mb-7"
+          onClick={(e) => {
+            e.preventDefault();
+            console.log("working");
+          }}
+        >
           <div className="flex flex-col mb-5">
             <label htmlFor="username" className="mb-2">
               Username
@@ -43,7 +50,7 @@ function Login() {
             <input
               type="submit"
               value="Login"
-              className="p-3 appearance-none bg-blue-400 text-white rounded "
+              className="p-3 appearance-none bg-blue-400 text-white rounded hover:cursor-pointer "
             />
           </div>
         </form>
