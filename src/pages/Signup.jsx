@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 function Signup({ addUser }) {
   const [errors, setErrors] = useState([]);
+  const [isValidFormData, setIsValidFormData] = useState(false);
 
   const [formData, setFormData] = useState({
     username: "",
@@ -66,7 +67,14 @@ function Signup({ addUser }) {
       }
     }
 
+    console.log("setting");
     setErrors([]);
+
+    if (!formData.username || !formData.email || !formData.password) {
+      return;
+    }
+
+    setIsValidFormData(true);
   }
 
   function handleOnChange(element) {
@@ -80,8 +88,7 @@ function Signup({ addUser }) {
 
     let new_user = formData;
 
-    console.log("error", errors);
-    if (errors.length > 0) {
+    if (errors.length > 0 || !isValidFormData) {
       return;
     }
 
