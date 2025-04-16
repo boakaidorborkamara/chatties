@@ -104,6 +104,14 @@ function Signup({ addUser }) {
     }
 
     addUser(new_user);
+
+    // clear state
+    setFormData({
+      username: "",
+      email: "",
+      password: "",
+    });
+    e.target.reset();
   }
 
   return (

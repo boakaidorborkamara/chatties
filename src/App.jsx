@@ -48,7 +48,7 @@ const Database = {
   },
 };
 
-// Database.clearDB();
+Database.clearDB();
 function App() {
   const [users, setUser] = useState([]);
 
