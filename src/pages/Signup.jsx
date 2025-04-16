@@ -13,7 +13,7 @@ function Signup({ addUser }) {
   function validateForm(form_field) {
     let new_error = {};
 
-    // username validation
+    // username field validation
     if (form_field.name === "username") {
       if (form_field.value.length === 0) {
         new_error.field = "username";
@@ -30,7 +30,7 @@ function Signup({ addUser }) {
       }
     }
 
-    // email
+    // email field validation
     if (form_field.name === "email") {
       if (form_field.value.length === 0) {
         new_error.field = "email";
@@ -50,7 +50,7 @@ function Signup({ addUser }) {
       }
     }
 
-    // password
+    // password field validation
     if (form_field.name === "password") {
       if (form_field.value.length === 0) {
         new_error.field = "Password";
@@ -67,7 +67,7 @@ function Signup({ addUser }) {
       }
     }
 
-    console.log("setting");
+    // empty error if validation is successful
     setErrors([]);
 
     if (!formData.username || !formData.email || !formData.password) {
@@ -79,16 +79,27 @@ function Signup({ addUser }) {
 
   function handleOnChange(element) {
     formData[element.name] = element.value;
-
     validateForm(element);
   }
 
   function handleSubmit(e) {
     e.preventDefault();
 
+    let username_field = e.target[0];
+    let email_field = e.target[1];
+    let password_field = e.target[2];
+
     let new_user = formData;
 
     if (errors.length > 0 || !isValidFormData) {
+      if (username_field.value.trim() === "") {
+        username_field.focus();
+      } else if (email_field.value.trim() === "") {
+        email_field.focus();
+      } else if (password_field.value.trim() === "") {
+        password_field.focus();
+      }
+
       return;
     }
 
