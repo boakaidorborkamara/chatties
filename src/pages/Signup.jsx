@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Outlet, Link } from "react-router-dom";
 
 function Signup({ addUser }) {
   const [errors, setErrors] = useState([]);
@@ -214,9 +215,9 @@ function Signup({ addUser }) {
 
         <p>
           Already have an account?{" "}
-          <a href="/login" className="text-blue-400 font-medium">
+          <Link to="/login" className="text-blue-400 font-medium">
             Login
-          </a>
+          </Link>
         </p>
       </div>
     </section>
