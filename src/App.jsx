@@ -62,17 +62,38 @@ function App() {
   }
 
   function login(user) {
-    console.log("logging in", user);
-  }
+    let users = Database.getUsers();
 
-  console.log(users);
+    let existingUser = users.filter((user_details) => {
+      return user_details.username === user.username;
+    });
+
+    if (!existingUser.length) {
+      alert("invalid username");
+      return;
+    }
+
+    if (existingUser[0].password != user.password) {
+      alert("password is incorrect");
+      return;
+    }
+
+    // log user in
+    existingUser[0].isActive = true;
+
+    // update local storage
+    Database.clearDB();
+    localStorage.setItem("users", JSON.stringify(users));
+    let update_v = localStorage.getItem("users");
+    console.log("444", update_v);
+  }
 
   return (
     <BrowserRouter>
       <Routes path="/">
         <Route index element={<Chats />} />
         <Route path="signup" element={<Signup addUser={addUser} />} />
-        <Route path="login" element={<Login />} />
+        <Route path="login" element={<Login login={login} />} />
         <Route path="/*" element={<p>page not found</p>} />
       </Routes>
     </BrowserRouter>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Login() {
+function Login({ login }) {
   const [formdata, setFormData] = useState({ username: "", password: "" });
   const [errors, setErrors] = useState({});
 
@@ -8,8 +8,7 @@ function Login() {
     let error = { field: "", message: "" };
 
     if (form_element.name === "username") {
-      console.log("setting username error");
-      if (formdata.username === "") {
+      if (form_element.value === "") {
         error.field = "username";
         error.message = "Username is required";
         setErrors(error);
@@ -20,7 +19,7 @@ function Login() {
     if (form_element.name === "password") {
       console.log("setting password error");
 
-      if (formdata.password === "") {
+      if (form_element.value === "") {
         error.field = "password";
         error.message = "Password is required";
         setErrors(error);
@@ -42,11 +41,23 @@ function Login() {
 
     console.log(errors);
 
-    if (errors) {
+    // if error break
+    if (errors.length > 0) {
       return;
     }
 
+    let login_details = formdata;
+    login(login_details);
+
     console.log("submitting", formdata);
+    // clear form
+    setFormData((prevState) => {
+      prevState.password = "";
+      prevState.username = "";
+      return { ...prevState };
+    });
+
+    form.reset();
   }
 
   return (
