@@ -139,6 +139,7 @@ function Signup({ addUser }) {
               type="text"
               name="username"
               placeholder="Enter username"
+              autoComplete="off"
               className="appearance-none border rounded p-3 "
               defaultValue={formData.username}
               onChange={(e) => {
@@ -163,6 +164,7 @@ function Signup({ addUser }) {
               type="email"
               name="email"
               placeholder="Enter email"
+              autoComplete="off"
               className="p-3 appearance-none border rounded "
               onChange={(e) => {
                 handleOnChange(e.target);
@@ -185,6 +187,7 @@ function Signup({ addUser }) {
               type="password"
               name="password"
               placeholder="Enter Password"
+              autoComplete="off"
               className="p-3 appearance-none border rounded "
               onChange={(e) => {
                 handleOnChange(e.target);

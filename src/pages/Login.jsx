@@ -5,7 +5,6 @@ function Login() {
   const [errors, setErrors] = useState({});
 
   function validate(form_element) {
-    console.log("form elel", form_element);
     let error = { field: "", message: "" };
 
     if (form_element.name === "username") {
@@ -40,6 +39,14 @@ function Login() {
       form[1].focus();
       return;
     }
+
+    console.log(errors);
+
+    if (errors) {
+      return;
+    }
+
+    console.log("submitting", formdata);
   }
 
   return (
@@ -72,6 +79,7 @@ function Login() {
               type="text"
               name="username"
               placeholder="Enter username"
+              autoComplete="off"
               className="appearance-none border rounded p-3 "
               onChange={(e) => {
                 let username = e.target.value;
@@ -98,6 +106,7 @@ function Login() {
               type="password"
               name="password"
               placeholder="Enter Password"
+              autoComplete="off"
               className="p-3 appearance-none border rounded "
               onChange={(e) => {
                 let password = e.target.value;
