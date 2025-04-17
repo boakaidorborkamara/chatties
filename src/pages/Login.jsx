@@ -1,6 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
 
 function Login() {
+  const [formdata, setFormData] = useState({ username: "", password: "" });
+  const [errors, setErrors] = useState({});
+
+  function validate(form_element) {
+    console.log("form elel", form_element);
+    let error = { field: "", message: "" };
+
+    if (form_element.name === "username") {
+      console.log("setting username error");
+      if (formdata.username === "") {
+        error.field = "username";
+        error.message = "Username is required";
+        setErrors(error);
+        return;
+      }
+    }
+
+    if (form_element.name === "password") {
+      console.log("setting password error");
+
+      if (formdata.password === "") {
+        error.field = "password";
+        error.message = "Password is required";
+        setErrors(error);
+        return;
+      }
+    }
+
+    setErrors({});
+  }
+
+  function handleSubmit(form) {
+    if (formdata.username === "") {
+      form[0].focus();
+      return;
+    } else if (formdata.password === "") {
+      form[1].focus();
+      return;
+    }
+  }
+
   return (
     <section className="bg-blue-400 h-lvh flex justify-center items-center">
       {/* signup form container  */}
@@ -18,9 +59,9 @@ function Login() {
         <form
           action=""
           className="mb-7"
-          onClick={(e) => {
+          onSubmit={(e) => {
             e.preventDefault();
-            console.log("working");
+            handleSubmit(e.target);
           }}
         >
           <div className="flex flex-col mb-5">
@@ -29,9 +70,24 @@ function Login() {
             </label>
             <input
               type="text"
+              name="username"
               placeholder="Enter username"
               className="appearance-none border rounded p-3 "
+              onChange={(e) => {
+                let username = e.target.value;
+
+                setFormData((prevState) => {
+                  let state = { ...prevState };
+                  state.username = username;
+                  return state;
+                });
+
+                validate(e.target);
+              }}
             />
+            <p className="text-red-600">
+              {errors.field === "username" ? errors.message : ""}
+            </p>
           </div>
 
           <div className="flex flex-col mb-5">
@@ -40,9 +96,24 @@ function Login() {
             </label>
             <input
               type="password"
+              name="password"
               placeholder="Enter Password"
               className="p-3 appearance-none border rounded "
+              onChange={(e) => {
+                let password = e.target.value;
+
+                setFormData((prevState) => {
+                  let state = { ...prevState };
+                  state.password = password;
+                  return state;
+                });
+
+                validate(e.target);
+              }}
             />
+            <p className="text-red-600">
+              {errors.field === "password" ? errors.message : ""}
+            </p>
           </div>
 
           {/* login btn  */}

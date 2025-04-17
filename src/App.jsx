@@ -56,11 +56,13 @@ function App() {
     Database.init();
   }, []);
 
-  console.log("uupp", users);
-
   function addUser(new_user) {
     // setUser([...users, new_user]);
     Database.addUser(new_user);
+  }
+
+  function login(user) {
+    console.log("logging in", user);
   }
 
   console.log(users);
